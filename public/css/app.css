@@ -1,0 +1,168 @@
+:root {
+    /* background */
+    --gradient-bg-start: #333867;
+    --gradient-bg-end: #17193b;
+
+    /* disable */
+    --disabled-color: rgb(107, 107, 107);
+
+    /* white */
+    --white: #dfe0e3;
+    --white-bg: #dfe0e3dd;
+    --white-hover: #ffffffdd;
+    --white-active: #ffffffaa;
+    --white-current: #ffffff50;
+
+    /* primary */
+    --primary-color: #484869;
+    --primary-border: #373779;
+    --primary-bg: #37377980;
+    --primary-hover: #31396aff;
+    --primary-active: rgb(31, 33, 83);
+
+    /* primary */
+    --success-color: rgb(73, 105, 72);
+    --success-border: rgb(57, 121, 55);
+    --success-bg: #3d793780;
+    --success-hover: rgb(49, 106, 49);
+    --success-active: rgb(33, 83, 31);
+
+    /* danger */
+    --danger-color: rgb(105, 72, 72);
+    --danger-border: rgb(121, 55, 55);
+    --danger-bg: rgba(121, 55, 55, 0.5);
+    --danger-hover: rgb(106, 49, 49);
+    --danger-active: rgb(58, 22, 22);
+
+    /* warning */
+    --warning-color: rgb(103, 105, 72);
+    --warning-border: rgb(117, 121, 55);
+    --warning-bg: rgba(117, 121, 55, 0.5);
+    --warning-hover: rgb(105, 106, 49);
+    --warning-active: rgb(57, 58, 22);
+
+    /* something */
+    --something: #181a3eff;
+
+    /* shadow */
+    --shadow-sm: 1px 1px 4px 0px black;
+
+    /* banners */
+    --banner-default: url(/img/banner_default.png);
+    --banner-blue: url(/img/banner_blue.png);
+    --banner-green: url(/img/banner_green.png);
+    --banner-pink: url(/img/banner_pink.png);
+    --banner-orange: url(/img/banner_orange.png);
+    --banner-cyan: url(/img/banner_cyan.png);
+    --banner-purple: url(/img/banner_purple.png);
+    --banner-lightblue: url(/img/banner_lightblue.png);
+    --banner-grey: url(/img/banner_grey.png);
+
+    /* sp backgrounds */
+    --sp-default: url(/img/sp_default.png);
+    --sp-blue: url(/img/sp_blue.png);
+    --sp-green: url(/img/sp_green.png);
+    --sp-pink: url(/img/sp_pink.png);
+    --sp-orange: url(/img/sp_orange.png);
+    --sp-cyan: url(/img/sp_cyan.png);
+    --sp-purple: url(/img/sp_purple.png);
+    --sp-lightblue: url(/img/sp_lightblue.png);
+    --sp-grey: url(/img/sp_grey.png);
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #484869 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 14px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff80;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #484869;
+    /* border-radius: 10px; */
+    border: 3px solid #ffffff00;
+}
+
+html,
+body,
+* {
+    font-family: "Roboto";
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    /* background: rgb(74, 79, 121);
+    background: linear-gradient(
+        135deg,
+        rgba(74, 79, 121, 1) 0%,
+        rgba(23, 25, 59, 1) 100%
+    ); */
+
+    background: radial-gradient(
+        farthest-side ellipse at 10% 0,
+        #333867 20%,
+        #17193b
+    );
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-size: auto;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.input,
+.button,
+.select {
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 0.25rem;
+    height: 100%;
+    font-size: smaller;
+    line-height: 1;
+}
+
+.button {
+    text-decoration: none;
+    transition: all ease-in-out 0.3s;
+}
+
+.select,
+.input[type="date"] {
+    -moz-appearance: none;
+         appearance: none;
+    -webkit-appearance: none;
+}
+
+.button:hover {
+    background-color: var(--primary-hover);
+}
+
+.button:active {
+    background-color: var(--primary-active);
+}
+
+.error-message {
+    padding: 0.75rem;
+    border: 1px solid var(--danger-color);
+    border-radius: 0.25rem;
+    color: var(--white);
+    background-color: var(--danger-bg);
+}
+
