@@ -1,0 +1,198 @@
+/* exam creator form */
+.exam-creator-form {
+    position: relative;
+    width: 768px;
+    margin-inline: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* toolbar wrapper */
+.exam-creator-toolbar-wrapper {
+    position: absolute;
+    left: 100%;
+    border: 1px solid red;
+
+    padding-inline: 0.25rem;
+    height: 100%;
+}
+/* toolbar */
+.exam-creator-toolbar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    border: 1px solid white;
+}
+
+/* exam-header */
+.exam-header {
+    display: flex;
+    flex-direction: row;
+    border-radius: 0.5rem;
+    border: 1px solid white;
+    padding: 0.75rem;
+    gap: 0.5rem;
+}
+
+/* exam header */
+.exam-header-control {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.exam-save-control {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* exam title */
+.exam-title > input,
+.exam-description > input {
+    border: none;
+    border-bottom: 1px solid black;
+    color: white;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid white;
+    outline: none;
+    width: 100%;
+}
+
+.exam-title > input:focus,
+.exam-description > input:focus {
+    border-bottom: 2px solid white;
+    margin-bottom: -1px;
+}
+
+.exam-title > input {
+    font-size: x-large;
+}
+
+.exam-description > input {
+    font-size: large;
+}
+
+/* .exam-content */
+.exam-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* exam item */
+.exam-item {
+    border: 1px solid white;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.exam-item-header {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+.exam-item-header > label {
+    flex-grow: 1;
+}
+
+.exam-item-header > label > textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid grey;
+    padding: 0.25rem;
+    color: white;
+    font-size: large;
+    background: transparent;
+    outline: none;
+}
+.exam-item-header > label > textarea:focus {
+    border-bottom: 2px solid white;
+    margin-bottom: -1px;
+}
+
+/* exam-add-question-wrapper */
+.exam-add-question-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* exam-add-question-button */
+.exam-add-question-button {
+    width: 100%;
+    border: 1px solid var(--white);
+    background-color: transparent;
+    padding-block: 0.25rem;
+}
+
+.multiple-choice,
+.multiple-choice > .choices {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.multiple-choice > .choices > .item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.multiple-choice > .choices > .item > input[type="text"] {
+    flex-grow: 1;
+    border: none;
+    border-bottom: 1px solid grey;
+    padding: 0.25rem;
+    color: white;
+    background: transparent;
+    outline: none;
+    font-size: medium;
+}
+
+.multiple-choice > .choices > .item > input[type="text"]:focus {
+    border-bottom: 2px solid white;
+    margin-bottom: -1px;
+}
+
+.multiple-choice > .choices > .item > button {
+    border: none;
+    background-color: transparent;
+    transition: all ease-in-out 0.3s;
+    padding: 0.25rem;
+    color: white;
+}
+
+.multiple-choice > .choices > .item > button:hover {
+    color: grey;
+}
+
+.short-answer > input,
+.coding > input {
+    font-size: large;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px dotted white;
+    color: white;
+    outline: none;
+}
+
+.coding > input {
+    pointer-events: none;
+}
+
+.short-answer > input:focus,
+.coding > input:focus {
+    border-bottom: 1px solid white;
+}
+

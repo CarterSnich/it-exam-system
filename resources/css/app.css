@@ -1,3 +1,18 @@
+@font-face {
+    font-family: "Roboto Regular";
+    src: url(/fonts/roboto-v30-latin-regular.woff2) format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto Mono";
+    src: url(/fonts/roboto-mono-v22-latin-regular.woff2) format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto Condensed";
+    src: url(/fonts/roboto-condensed-v25-latin-regular.woff2) format("truetype");
+}
+
 :root {
     /* background */
     --gradient-bg-start: #333867;
@@ -95,7 +110,7 @@
 html,
 body,
 * {
-    font-family: "Roboto";
+    font-family: "Roboto Regular";
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
@@ -104,13 +119,6 @@ body,
 
 html,
 body {
-    /* background: rgb(74, 79, 121);
-    background: linear-gradient(
-        135deg,
-        rgba(74, 79, 121, 1) 0%,
-        rgba(23, 25, 59, 1) 100%
-    ); */
-
     background: radial-gradient(
         farthest-side ellipse at 10% 0,
         #333867 20%,
@@ -144,9 +152,21 @@ body {
 }
 
 .select,
-.input[type="date"] {
+.input[type="date"],
+.custom-select > select {
     appearance: none;
     -webkit-appearance: none;
+}
+
+.custom-select {
+    position: relative;
+    width: auto;
+}
+.custom-select::after {
+    content: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="16" height="16" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"%3E%3Cpath fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4 9l8 8l8-8"%2F%3E%3C%2Fsvg%3E');
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.5rem;
 }
 
 .button:hover {

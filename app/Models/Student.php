@@ -15,7 +15,6 @@ class Student extends Authenticatable
 
     protected $fillable = [
         // user account credentials
-        'username',
         'password',
 
         // identity

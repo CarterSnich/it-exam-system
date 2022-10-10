@@ -9,9 +9,9 @@
     <link rel="shortcut icon" href="{{ asset('img/237170717_10159380668691838_867040353180657182_n.png') }}" type="image/x-icon">
 
     {{-- fonts --}}
-    <link rel="stylesheet" href="{{ asset('fonts/roboto-v30-latin-regular.woff2') }}" type="woff2">
-    <link rel="stylesheet" href="{{ asset('fonts/roboto-mono-v22-latin-regular.woff2') }}" type="woff2">
-    <link rel="stylesheet" href="{{ asset('fonts/roboto-condensed-v25-latin-regular.woff2') }}" type="woff2">
+    <link rel="preload" href="{{ asset('fonts/roboto-v30-latin-regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('fonts/roboto-mono-v22-latin-regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('fonts/roboto-condensed-v25-latin-regular.woff2') }}" as="font" type="font/woff2" crossorigin>
 
     {{-- app style --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">

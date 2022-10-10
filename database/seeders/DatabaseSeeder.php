@@ -13,14 +13,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // admin
         \App\Models\Administrator::factory()->create();
 
-        for ($i = 0; $i < 52; $i++) {
+        // teachers
+        for ($i = 0; $i < 28; $i++) {
             \App\Models\Teacher::factory()->create();
         }
 
-        for ($i = 0; $i < 127; $i++) {
+        // students
+        for ($i = 0; $i < 98; $i++) {
             \App\Models\Student::factory()->create();
+        }
+
+        // sections
+        for ($i = 0; $i < 50; $i++) {
+            \App\Models\Section::factory()->create();
+        }
+
+        // section-student
+        for ($i = 0; $i < 98; $i++) {
+            try {
+                //code...
+                \App\Models\SectionStudent::factory()->create();
+            } catch (\Illuminate\Database\QueryException $th) {
+                ++$i;
+            }
         }
     }
 }

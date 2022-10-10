@@ -7,6 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome | IT Exam System</title>
 
+    {{-- fonts --}}
+    <link rel="preload" href="{{ asset('fonts/roboto-v30-latin-regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('fonts/roboto-mono-v22-latin-regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('fonts/roboto-condensed-v25-latin-regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+
+
     {{-- app style --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
@@ -70,7 +76,6 @@
 </head>
 
 <body>
-
     <div class="wrapper">
 
         <header>

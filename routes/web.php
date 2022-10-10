@@ -45,6 +45,10 @@ Route::controller(TeacherViewsController::class,)->prefix('teacher/')->group(fun
     Route::get('/login', 'login')->name('teacher_login');
     Route::get('/sections', 'sections')->middleware('auth:teacher');
     Route::get('/sections/{section}/class', 'section')->middleware('auth:teacher');
+    Route::get('/sections/{section}/exams', 'exams')->middleware('auth:teacher');
+    Route::get('/sections/{section}/exams/create', 'create_exam')->middleware('auth:teacher');
+    Route::get('/sections/{section}/students', 'students')->middleware('auth:teacher');
+    Route::get('/sections/{section}/students/add', 'add_students')->middleware('auth:teacher');
 });
 
 // teacher routes

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSectionStudentTable extends Migration
+class CreateSectionStudentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSectionStudentTable extends Migration
      */
     public function up()
     {
-        Schema::create('section_student', function (Blueprint $table) {
+        Schema::create('section_students', function (Blueprint $table) {
             $table->id();
 
             // class reference
@@ -21,7 +21,7 @@ class CreateSectionStudentTable extends Migration
             $table->foreign('section_id')->references('id')->on('sections')->cascadeOnDelete();
 
             // student reference
-            $table->foreignId('student_id');
+            $table->foreignId('student_id')->unique();
             $table->foreign('student_id')->references('id')->on('students')->cascadeOnDelete();
 
             $table->timestamps();

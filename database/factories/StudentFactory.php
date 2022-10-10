@@ -16,7 +16,6 @@ class StudentFactory extends Factory
     {
         return [
             // user account credentials
-            'student_id' => $this->faker->unique()->numerify(date("Y") . '-#####'),
             'password' => Hash::make('password'),
 
             // identity

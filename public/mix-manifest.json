@@ -1,6 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/vanta.js": "/js/vanta.js",
+    "/js/exam-creator.js": "/js/exam-creator.js",
     "/css/app.css": "/css/app.css",
+    "/css/exam-creator.css": "/css/exam-creator.css",
     "/css/vanta.css": "/css/vanta.css"
 }

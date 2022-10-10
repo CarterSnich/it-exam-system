@@ -29,34 +29,46 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            align-items: center;
+            align-items: stretch;
+            padding-inline: .75rem;
         }
 
-        .section-nav>.section-name {
+        /* section header */
+        .section-header {
             padding: .25rem;
             color: var(--white);
         }
 
+        /* section tabs */
         .section-nav>ul {
             display: flex;
             flex-direction: row;
             justify-content: center;
-            gap: .25rem;
             list-style: none;
         }
 
         .section-nav>ul>li>a {
-            padding-inline: .75rem;
+            padding-inline: 0.75rem;
             height: 100%;
-            display: block;
+            display: grid;
             text-decoration: none;
             transition: all ease-in-out .3s;
             color: var(--white);
+            place-content: center;
 
         }
 
         .section-nav>ul>li>a:hover {
-            background-color: var(--primary-hover);
+            background-color: var(--primary-hover) !important;
+        }
+
+        .section-nav>ul>li>a:active {
+            color: black;
+            background-color: var(--white-active);
+        }
+
+        .section-nav>ul>li>a.active {
+            background-color: var(--white-current);
         }
 
         /* class content */
@@ -126,28 +138,8 @@
     <div id="content">
 
         {{-- navbar --}}
-        <nav class="section-nav">
+        <x-teacher.section-nav :sectionName="$section->section_name" :course="$section->course" :sectionId="$section->id" />
 
-            <div class="section-header">
-                <h2 class="section-name">{{ $section->section_name }}</h2>
-                <div class="section-course">{{ $section->course }}</div>
-            </div>
-
-            <ul>
-                <li>
-                    <a href="/teacher/sections/{{ $section->id }}/class" class="@if (Request::is('/teacher/sections/*/class')) active @endif">Class</a>
-                </li>
-                <li>
-                    <a href="/teacher/sections/{{ $section->id }}/exams">Exams</a>
-                </li>
-                <li>
-                    <a href="/teacher/sections/{{ $section->id }}/students">Students</a>
-                </li>
-                <li>
-                    <a href="/teacher/sections/{{ $section->id }}/settings">Settings</a>
-                </li>
-            </ul>
-        </nav>
 
         <div class="class-content">
 
