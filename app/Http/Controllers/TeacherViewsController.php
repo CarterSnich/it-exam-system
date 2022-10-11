@@ -67,7 +67,8 @@ class TeacherViewsController extends Controller
     {
         return view('teacher.students', [
             'section' => $section,
-            'students' => Student::join("section_students", "students.id", "=", "section_students.student_id")
+            'students' => Student::select('students.*')
+                ->join("section_students", "students.id", "=", "section_students.student_id")
                 ->where("section_students.section_id", "=", $section->id)
                 ->get()
         ]);

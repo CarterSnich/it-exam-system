@@ -286,6 +286,7 @@
                 </thead>
                 <tbody>
                     @foreach ($students as $student)
+                        @dd($student)
                         <tr>
                             <td>
                                 <a href="#">{{ $student->student_id }}</a>
