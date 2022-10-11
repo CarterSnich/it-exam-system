@@ -196,3 +196,14 @@
     border-bottom: 1px solid white;
 }
 
+.progress-overlay {
+    z-index: 10;
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-content: center;
+    background-color: #00000080;
+    border-radius: 0.5rem;
+    color: white !important;
+}
+

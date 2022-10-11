@@ -115,7 +115,7 @@
         {{-- cards --}}
         @if ($sections->count())
             @foreach ($sections as $section)
-                <a href="/teacher/sections/{{ $section->id }}/class" class="card {{ $section->color_code ?? 'banner_default' }}">
+                <a href="/teacher/sections/{{ $section->id }}/class" class="card banner_{{ $section->theme_color }}">
                     <div class="card-header">
                         {{ $section->section_name }}
                     </div>

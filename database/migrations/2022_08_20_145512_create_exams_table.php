@@ -18,8 +18,8 @@ class CreateExamsTable extends Migration
 
             $table->string('title');
             $table->string('description');
-            $table->unsignedBigInteger('duration');
-            $table->json('items');
+            $table->unsignedBigInteger('duration')->nullable();
+            $table->json('items')->nullable();
             $table->timestamp('deadline')->nullable();
             $table->boolean('open')->default(true);
             $table->foreignId('section_id');

@@ -86,8 +86,6 @@
             flex-grow: 1;
             overflow: hidden;
             width: 100%;
-
-
         }
     </style>
 
@@ -95,6 +93,10 @@
 </head>
 
 <body>
+    {{-- alert pop up --}}
+    @if (session()->has('toast'))
+        <x-alert-pop-up :type="session()->get('toast')['type']" :message="session()->get('toast')['message']" />
+    @endif
 
     <header>
         {{-- brand link --}}
@@ -132,7 +134,7 @@
 
     </header>
 
-    <div class="account-menu-dropdown">
+    {{-- <div class="account-menu-dropdown">
 
         <div>
             <img src="" alt="">
@@ -145,13 +147,18 @@
             <li><a href="/student/logout">Log out</a></li>
         </ul>
 
-    </div>
+    </div> --}}
 
 
     <main>
         @yield('page_content')
     </main>
 
+
+    {{-- app script --}}
+    <script src="{{ asset('js/app.js') }}"></script>
+
+    @yield('page_script')
 </body>
 
 </html>

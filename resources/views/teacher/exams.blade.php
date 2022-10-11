@@ -281,41 +281,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @for ($i = 0; $i < 50; $i++)
-                        <tr>
-                            <td>
-                                <a href="#">
-                                    {{ $i }}
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#">
-                                    {{ $i }}
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#">
-                                    {{ $i }}
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#">
-                                    {{ $i }}
-                                </a>
-                            </td>
-                        </tr>
-                    @endfor --}}
-
                     @foreach ($exams as $exam)
                         <tr>
                             <td>
                                 <a href="#">
-                                    {{ $exam->exam }}
+                                    {{ $exam->title }}
                                 </a>
                             </td>
                             <td>
                                 <a href="#">
-                                    {{ date('F j, Y', strtotime($exam->created_at)) }}
+                                    {{ date('F j, Y h:i A', strtotime($exam->created_at)) }}
                                 </a>
                             </td>
                             <td>
@@ -325,7 +300,7 @@
                             </td>
                             <td>
                                 <a href="#">
-                                    {{ $teacher->address }}
+                                    {{ 0 }}
                                 </a>
                             </td>
                         </tr>

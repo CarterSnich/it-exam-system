@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Exam;
+use App\Models\Section;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -53,5 +55,21 @@ class TeacherController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/teacher/login');
+    }
+
+    public function store_exam(Request $request, Section $section)
+    {
+        $formFields = $request->all();
+        $formFields['section_id'] = $section->id;
+        $exam = Exam::create($formFields);
+        return $exam ? [
+            'status' => 200,
+            'data' => [
+                'url' => "/teacher/sections/{$section->id}/exams"
+            ]
+        ] : [
+            'status' => 500,
+            'data' => []
+        ];
     }
 }

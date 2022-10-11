@@ -32,12 +32,15 @@ class TeacherViewsController extends Controller
     // display section
     public function section(Section $section)
     {
+        if ($section->teacher_id != Auth::guard('teacher')->id()) {
+            return abort(403);
+        }
         return view('teacher.section', [
             'section' => $section
         ]);
     }
 
-    // display section
+    // display exams
     public function exams(Section $section)
     {
         $exams = DB::table('exams')

@@ -117,9 +117,9 @@
             @endif
 
             <div>
-                <label for="username">Username</label>
-                <input type="text" class="input" name="username" id="username" value="{{ old('username') }}" required>
-                @error('username')
+                <label for="username">Student ID</label>
+                <input type="text" class="input" name="student_id" id="student_id" value="{{ old('student_id') }}" required>
+                @error('student_id')
                     <div class="error-message">
                         {{ $message }}
                     </div>

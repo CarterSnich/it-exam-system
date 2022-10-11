@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Student;
+use Carbon\Carbon;
+use Closure;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,6 +19,7 @@ class StudentFactory extends Factory
     {
         return [
             // user account credentials
+            'student_id' => $this->faker->numerify("{date('Y')}-####"),
             'password' => Hash::make('password'),
 
             // identity
@@ -34,5 +38,14 @@ class StudentFactory extends Factory
             // address
             'address' => $this->faker->address()
         ];
+    }
+
+    public function configure()
+    {
+        return $this->afterCreating(function (Student $student) {
+            $carbon = new Carbon($student->created_at);
+            $student->student_id = $carbon->year . "-" . str_pad($student->id, 4, '0', STR_PAD_LEFT);
+            $student->save();
+        });
     }
 }

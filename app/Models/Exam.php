@@ -13,9 +13,14 @@ class Exam extends Model
         'title',
         'description',
         'duration',
+        'items',
         'exam',
         'deadline',
         'open',
         'section_id',
+    ];
+
+    protected $casts = [
+        'items' => 'json',
     ];
 }

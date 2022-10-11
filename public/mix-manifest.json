@@ -2,6 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/js/vanta.js": "/js/vanta.js",
     "/js/exam-creator.js": "/js/exam-creator.js",
+    "/js/exam-session.js": "/js/exam-session.js",
     "/css/app.css": "/css/app.css",
     "/css/exam-creator.css": "/css/exam-creator.css",
     "/css/vanta.css": "/css/vanta.css"

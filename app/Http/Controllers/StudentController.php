@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Exam;
+use App\Models\Submission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -15,7 +17,7 @@ class StudentController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'username' => ['required'],
+                'student_id' => ['required', 'exists:students,student_id'],
                 'password' => ['required']
             ]
         );
@@ -25,26 +27,30 @@ class StudentController extends Controller
         if ($validator->fails()) {
             return
                 back()
-                ->onlyInput('username')
+                ->onlyInput('student_id')
                 ->withErrors($validator->errors());
         }
 
+        $credentials = [
+            'student_id' => $request->student_id,
+            'password' => $request->password
+        ];
+
         // attempt to authenticate using input from request
         // and redirect to dashboard on success
-        if (Auth::guard('student')->attempt($validator->validated())) {
+        if (Auth::guard('student')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/student/classes');
+            return redirect()->intended('/student/exams');
         }
 
         // else return back to login page
-        return back()->with([
-            'toasts' => [
-                [
+        return
+            back()->with([
+                'toasts' => [
                     'type' => 'warning',
                     'message' => 'Invalid credentials.'
                 ]
-            ]
-        ])->onlyInput('email');
+            ])->onlyInput('email');
     }
 
     // logout
@@ -54,5 +60,34 @@ class StudentController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/student/login');
+    }
+
+    public function submit(Request $request, int $exam_id)
+    {
+        $exam = Exam::where('id', '=', $exam_id)->first();
+        $formFields = $request->all();
+        $formFields['exam_id'] = $exam->id;
+        $formFields['student_id'] = Auth::guard('student')->user()->id;
+        $score = 0;
+
+        for ($i = 0; $i < count($exam->items); $i++) {
+            if ($exam->items[$i]['answer'] == $formFields['answers'][$i]['answer']) {
+                $score++;
+            }
+        }
+
+        $formFields['score'] = $score;
+
+        $submission = Submission::create($formFields);
+
+        return $submission ? [
+            'status' => 200,
+            'data' => [
+                'url' => "/student/exams/{$exam->id}"
+            ]
+        ] : [
+            'status' => 500,
+            'data' => []
+        ];
     }
 }

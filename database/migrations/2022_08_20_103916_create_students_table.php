@@ -17,6 +17,7 @@ class CreateStudentsTable extends Migration
             $table->id();
 
             // user account credentials
+            $table->string('student_id')->nullable();
             $table->string('password');
 
             // identity

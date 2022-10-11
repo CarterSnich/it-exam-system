@@ -62,6 +62,17 @@
     /* shadow */
     --shadow-sm: 1px 1px 4px 0px black;
 
+    /* sp-color */
+    --sp-color-default: #3b95ac80;
+    --sp-color-blue: #1967d280;
+    --sp-color-green: #1e8e3e80;
+    --sp-color-pink: #e5259280;
+    --sp-color-orange: #e8710a80;
+    --sp-color-cyan: #129eaf80;
+    --sp-color-purple: #9334e680;
+    --sp-color-lightblue: #4285f480;
+    --sp-color-grey: #5f636880;
+
     /* banners */
     --banner-default: url(/img/banner_default.png);
     --banner-blue: url(/img/banner_blue.png);
